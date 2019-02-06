@@ -12,9 +12,8 @@ public class PlayerController : MonoBehaviour
 
     public float _speed = 10.0f;
     private CameraController camcontroller;
-    //private int _layers = 1 << 9;
     public float _range = 5.0f;
-    private bool _frozen = false;
+    public bool _frozen = false;
 
     private void Start()
     {
