@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public float _speed = 10.0f;
     private CameraController camcontroller;
-    public LayerMask _interactiveItems;
+    //private int _layers = 1 << 9;
     public float _range = 5.0f;
 
     private void Start()
@@ -47,14 +47,14 @@ public class PlayerController : MonoBehaviour
     private void CheckObjects()
     {
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, _range, _interactiveItems))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, _range) && hit.transform.tag == "InteractiveObject")
         {
-            ChangeCursor(_cursorHand,5);
+            ChangeCursor(_cursorHand, 1);
             Debug.Log("Change to hand");
         }
         else
         {
-            ChangeCursor(_cursorOver,1);
+            ChangeCursor(_cursorOver,0.5f);
             Debug.Log("Change to dot");
         }
     }
