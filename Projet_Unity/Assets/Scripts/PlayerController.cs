@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private CameraController camcontroller;
     //private int _layers = 1 << 9;
     public float _range = 5.0f;
+    private bool _frozen = false;
 
     private void Start()
     {
@@ -23,7 +24,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Move();
+        if(!_frozen)
+            Move();
+
         CheckObjects();
     }
 
@@ -36,26 +39,31 @@ public class PlayerController : MonoBehaviour
         move *= Time.deltaTime;
         transform.Translate(move);
     }
-    /*
+    
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetMouseButtonDown(0)) camcontroller.Block(true);
-        Debug.Log("trigger");
-        if (Input.GetKeyDown("e")) camcontroller.Block(false);
+        if (Input.GetKeyDown(KeyCode.E) && other.tag == "Lamp")
+        { 
+            camcontroller.Block(true);
+            _frozen = true;
+            other.gameObject.GetComponent<Lamp>().Control(gameObject);
+        }
     }
-    */
+    
     private void CheckObjects()
     {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, _range) && hit.transform.tag == "InteractiveObject")
         {
             ChangeCursor(_cursorHand, 1);
-            Debug.Log("Change to hand");
+            if (Input.GetMouseButton(0))
+            {
+                hit.transform.position = new Vector3(hit.transform.position.x + Input.GetAxis("Mouse X"),hit.transform.position.y,hit.transform.position.z);
+            }
         }
         else
         {
             ChangeCursor(_cursorOver,0.5f);
-            Debug.Log("Change to dot");
         }
     }
 
