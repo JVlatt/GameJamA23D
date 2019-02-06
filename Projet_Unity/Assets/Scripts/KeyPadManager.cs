@@ -21,11 +21,13 @@ public class KeyPadManager : MonoBehaviour
         {
             Debug.Log("Porte déverouillée");
             gameObject.SetActive(false);
+            SoundControler._soundControler.PlaySound(SoundControler._soundControler._validation);
         }
         else
         {
             TextField.text = "";
             Debug.Log("Mot de Passe incorrect");
+            SoundControler._soundControler.PlaySound(SoundControler._soundControler._erreur);
         }
     }
 
