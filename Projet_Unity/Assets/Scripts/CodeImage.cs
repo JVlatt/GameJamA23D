@@ -22,6 +22,13 @@ public class CodeImage : MonoBehaviour
     public void Unlock()
     {
         string test = num[0].ToString() + num[1].ToString() + num[2].ToString();
-        if (test == code) Debug.Log("good");
+        if (test == code)
+        {
+            SoundControler._soundControler.PlaySound(SoundControler._soundControler._validation);
+        }
+        else
+        {
+            SoundControler._soundControler.PlaySound(SoundControler._soundControler._erreur);
+        }
     }
 }
