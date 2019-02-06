@@ -7,6 +7,13 @@ public class CodeImage : MonoBehaviour
     public string code;
     private int[] num = {1,1,1};
 
+    private Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     public void Add(int numero)
     {
         num[numero]++;
@@ -29,6 +36,7 @@ public class CodeImage : MonoBehaviour
         else
         {
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._erreur);
+            anim.SetTrigger("shake");
         }
     }
 }

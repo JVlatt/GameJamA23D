@@ -7,8 +7,12 @@ public class KeyPadManager : MonoBehaviour
 {
     public InputField TextField;
     public string Password = "0000";
+    private Animator anim;
 
-
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     public void Set(int digit)
     {
@@ -28,6 +32,7 @@ public class KeyPadManager : MonoBehaviour
             TextField.text = "";
             Debug.Log("Mot de Passe incorrect");
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._erreur);
+            anim.SetTrigger("shake");
         }
     }
 
