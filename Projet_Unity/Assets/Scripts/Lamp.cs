@@ -6,16 +6,30 @@ public class Lamp : MonoBehaviour
 {
     private bool _controlled = false;
     private GameObject _player;
-    public Transform _light;
-    float anglex = 0;
-    float angley = 0;
-    float speed = 90;
+    public GameObject _light;
+    public GameObject _target;
+
+    private float _timer;
+    private float _cooldown = 1.0f;
+
+    private bool _timerSetup;
 
     void Update()
     {
+        if (_timer > 0)
+            _timer -= Time.deltaTime;
         if (_controlled)
-        { 
+        {
+            if(!_timerSetup)
+            { 
+                _timer = _cooldown;
+                _timerSetup = true;
+            }
+
+            _light.transform.LookAt(_target.transform);
             Move();
+            if (Input.GetKeyUp(KeyCode.E) && _timer <= 0)
+                Exit();
         }
     }
 
@@ -23,15 +37,9 @@ public class Lamp : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
-        if(x != 0)
-        { 
-            anglex += Mathf.Sign(x) * speed * Time.deltaTime;
-        }
-        if(y != 0)
-        {
-            angley += Mathf.Sign(y) * speed * Time.deltaTime;
-        }
-        _light.rotation = Quaternion.Euler(anglex, angley, 0);
+
+        Vector3 move = new Vector3(x, y, 0);
+        _target.transform.Translate(move);
 
     }
     public void Control(GameObject player)
@@ -41,8 +49,10 @@ public class Lamp : MonoBehaviour
     }
     private void Exit()
     {
-        //_player.GetComponent<>
+        _timerSetup = false;
         _controlled = false;
+        _player.GetComponent<PlayerController>()._frozen = false;
+        _player.GetComponent<CameraController>().Block(false);
     }
 
 
