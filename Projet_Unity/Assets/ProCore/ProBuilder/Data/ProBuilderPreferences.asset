@@ -29,8 +29,16 @@ MonoBehaviour:
   m_String_keys: []
   m_Color_keys: []
   m_Material_keys: []
+<<<<<<< Updated upstream
   m_Bool_values: 010001
+=======
+  m_Bool_values: 0100
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
   m_Int_values: 0000000000000000020000000000000001000000
+=======
+  m_Int_values: 0000000000000000000000000000000001000000
+>>>>>>> Stashed changes
   m_Float_values:
   - 0
   - 0

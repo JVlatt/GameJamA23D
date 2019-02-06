@@ -611,10 +611,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 2f481974-9cbc-470c-b707-361cdd689339
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
-  projectName: Projet_Unity
-  organizationId: mastah
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
