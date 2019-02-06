@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
         MouseX = 1,
         MouseY = 2
     }
+    public static bool block;
 
     public RotationAxis axes = RotationAxis.MouseX;
 
@@ -20,20 +21,34 @@ public class CameraController : MonoBehaviour
 
     public float _rotationX = 0;
 
-    
+
     void Update()
     {
-        if (axes == RotationAxis.MouseX)
-            transform.Rotate(0, Input.GetAxis("Mouse X") * Sensitivity_y, 0);
-        else if (axes == RotationAxis.MouseY)
+        if (!block)
         {
-            _rotationX -= Input.GetAxis("Mouse Y") * Sensitivity_y;
-            _rotationX = Mathf.Clamp(_rotationX, Y_MIN, Y_MAX);
+            if (axes == RotationAxis.MouseX)
+                transform.Rotate(0, Input.GetAxis("Mouse X") * Sensitivity_y, 0);
+            else if (axes == RotationAxis.MouseY)
+            {
+                _rotationX -= Input.GetAxis("Mouse Y") * Sensitivity_y;
+                _rotationX = Mathf.Clamp(_rotationX, Y_MIN, Y_MAX);
 
-            float rotationY = transform.localEulerAngles.y;
+                float rotationY = transform.localEulerAngles.y;
 
-            transform.localEulerAngles = new Vector3(_rotationX, rotationY, 0);
+                transform.localEulerAngles = new Vector3(_rotationX, rotationY, 0);
+            }
         }
-        
+        else
+        {
+            if (axes == RotationAxis.MouseY)
+            {
+                transform.localEulerAngles = new Vector3(0, 0, 0);
+            }
+        }
+    }
+
+    public void Block(bool state)
+    {
+        block = state;
     }
 }

@@ -5,10 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float _speed = 10.0f;
+    private CameraController camcontroller;
+
+    private void Start()
+    {
+        camcontroller = transform.GetComponent<CameraController>();
+    }
 
     void Update()
     {
-        Move();
+        Move();    
     }
 
     void Move()
@@ -19,5 +25,12 @@ public class PlayerController : MonoBehaviour
         Vector3 move = new Vector3(x * _speed, 0, y * _speed);
         move *= Time.deltaTime;
         transform.Translate(move);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (Input.GetMouseButtonDown(0)) camcontroller.Block(true);
+        Debug.Log("trigger");
+        if (Input.GetKeyDown("e")) camcontroller.Block(false);
     }
 }
