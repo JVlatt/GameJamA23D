@@ -6,6 +6,7 @@ public class KeyPadProp : MonoBehaviour
 {
     public GameObject KeyPadUI;
     public GameObject _door;
+    public float stop;
 
     public bool GAMEJAMOMG = false;
 
@@ -25,7 +26,7 @@ public class KeyPadProp : MonoBehaviour
 
     private void Update()
     {
-        if (GAMEJAMOMG && _door.transform.position.y > -(_door.transform.localScale.y)/2)
+        if (GAMEJAMOMG && _door.transform.position.y > -stop)
             _door.transform.Translate(new Vector3(0, -Time.deltaTime, 0));
 
 
