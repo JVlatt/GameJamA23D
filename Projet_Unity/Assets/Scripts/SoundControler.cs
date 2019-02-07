@@ -33,7 +33,7 @@ public class SoundControler : MonoBehaviour {
 
         _source = GetComponent<AudioSource>();
         
-        _source.clip = _ambiance;
+        _source.clip = _musicIG;
         _source.loop = true;
         _source.Play();
     }
