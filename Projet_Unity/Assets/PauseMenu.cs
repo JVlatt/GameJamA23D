@@ -17,5 +17,12 @@ public class PauseMenu : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene(0);
+        GameController._gameController.Freeze(false);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(1);
+        GameController._gameController.Freeze(false);
     }
 }
