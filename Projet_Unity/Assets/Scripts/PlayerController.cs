@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public float _range = 5.0f;
     public bool _frozen = false;
     private float _timer = 0.5f;
-    private bool gamejam;
+    public bool gamejam;
 
     private void Start()
     {
