@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float _range = 5.0f;
     public bool _frozen = false;
     private float _timer = 0.5f;
+    private bool gamejam;
 
     private void Start()
     {
@@ -42,7 +43,12 @@ public class PlayerController : MonoBehaviour
         transform.Translate(move);
         _timer -= Time.deltaTime;
         if ((x >= 0.1f || x <= -0.1f || y >= 0.1f || y <= -0.1f) && _timer <= 0)
-        { 
+        {
+            if (!gamejam)
+            {
+                VoixManager.voixManager.Playvoice();
+                gamejam = true;
+            }
             SoundControler._soundControler.FootStep();
             _timer = 0.5f;
         }
