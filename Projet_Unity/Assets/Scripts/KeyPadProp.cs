@@ -11,6 +11,7 @@ public class KeyPadProp : MonoBehaviour
     public float stop;
     public InputField TextField;
     public string Password = "0000";
+    public bool soundplayed;
 
     private bool unlocked = false;
 
@@ -34,7 +35,11 @@ public class KeyPadProp : MonoBehaviour
     {
         if (unlocked && _door.transform.position.y > -stop)
             _door.transform.Translate(new Vector3(0, -Time.deltaTime, 0));
-        else if(unlocked) VoixManager.voixManager.Playvoice();
+        else if (unlocked && !soundplayed)
+        {
+            VoixManager.voixManager.Playvoice();
+            soundplayed = true;
+        }
         if (Input.GetKeyDown(KeyCode.Escape) && KeyPadUI.activeInHierarchy )
         {
             Reset();
