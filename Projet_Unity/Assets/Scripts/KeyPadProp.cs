@@ -71,6 +71,7 @@ public class KeyPadProp : MonoBehaviour
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._murtombe);
             VoixManager.voixManager.Playvoice();
             GameController._gameController.Freeze(false);
+            inside = false;
 
         }
         else
@@ -111,6 +112,7 @@ public class KeyPadProp : MonoBehaviour
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._validation);
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._murtombe);
             GameController._gameController.Freeze(false);
+            inside = false;
             VoixManager.voixManager.Playvoice();
         }
         else
