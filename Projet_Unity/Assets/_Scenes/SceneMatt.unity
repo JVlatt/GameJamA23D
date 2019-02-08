@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4488817, g: 0.49539572, b: 0.55659956, a: 1}
+  m_IndirectSpecularColor: {r: 0.44888222, g: 0.49539614, b: 0.5566006, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1289,10 +1289,10 @@ RectTransform:
   m_Father: {fileID: 1072063926}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: -1900, y: -1060}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1309962923
 MonoBehaviour:
@@ -1344,7 +1344,7 @@ GameObject:
   m_Layer: 0
   m_Name: trigger
   m_TagString: LampTrigger
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
