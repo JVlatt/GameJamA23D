@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class KeyPadProp : MonoBehaviour
 {
+    private int[] num = { 1, 1, 1 };
     public GameObject KeyPadUI;
     public GameObject _door;
     public float stop;
@@ -68,5 +69,34 @@ public class KeyPadProp : MonoBehaviour
     public void Reset()
     {
         TextField.text = "";
+    }
+
+    public void Add(int numero)
+    {
+        num[numero]++;
+        if (num[numero] > 4) num[numero] = 1;
+    }
+
+    public void Soustract(int numero)
+    {
+        num[numero]--;
+        if (num[numero] < 1) num[numero] = 4;
+    }
+
+    public void Unlock2()
+    {
+        string test = num[0].ToString() + num[1].ToString() + num[2].ToString();
+        if (test == Password)
+        {
+            KeyPadUI.gameObject.SetActive(false);
+            SoundControler._soundControler.PlaySound(SoundControler._soundControler._validation);
+            GameController._gameController.Freeze(false);
+        }
+        else
+        {
+            SoundControler._soundControler.PlaySound(SoundControler._soundControler._erreur);
+            anim.SetTrigger("shake");
+            Debug.Log(num[0].ToString() + num[1].ToString() + num[2].ToString());
+        }
     }
 }
