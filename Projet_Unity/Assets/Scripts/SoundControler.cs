@@ -42,7 +42,7 @@ public class SoundControler : MonoBehaviour {
 
     public void PlaySound(AudioClip sound)
     {
-        _sources[1].PlayOneShot(sound);
+        _sources[2].PlayOneShot(sound);
     }
 
     public void FootStep()
