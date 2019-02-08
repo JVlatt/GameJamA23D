@@ -13,8 +13,10 @@ public class KeyPadProp : MonoBehaviour
     public string Password = "0000";
     private bool soundplayed;
     public bool firstdigit;
+    private float timer=0.1f;
 
     private bool unlocked = false;
+    private bool inside;
 
     private Animator anim;
 
@@ -25,15 +27,19 @@ public class KeyPadProp : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Player" && Input.GetKeyDown(KeyCode.E))
+        if (other.tag == "Player" && Input.GetKeyDown(KeyCode.E) &&!inside )
         {
             GameController._gameController.Freeze(true);
             KeyPadUI.SetActive(true);
+            timer = 0.5f;
+            inside = true;
         }
     }
 
     private void Update()
     {
+        if (timer > 0)
+            timer -= Time.deltaTime;
         if (unlocked && _door.transform.position.y > -stop)
             _door.transform.Translate(new Vector3(0, -Time.deltaTime, 0));
         else if (unlocked && !soundplayed)
@@ -41,11 +47,12 @@ public class KeyPadProp : MonoBehaviour
             VoixManager.voixManager.Playvoice();
             soundplayed = true;
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && KeyPadUI.activeInHierarchy )
+        if (Input.GetKeyDown(KeyCode.E)  && timer <=0 && inside)
         {
             Reset();
             GameController._gameController.Freeze(false);
             KeyPadUI.SetActive(false);
+            inside = false;
         }
     }
 
