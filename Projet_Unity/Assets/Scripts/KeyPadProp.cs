@@ -11,7 +11,8 @@ public class KeyPadProp : MonoBehaviour
     public float stop;
     public InputField TextField;
     public string Password = "0000";
-    public bool soundplayed;
+    private bool soundplayed;
+    public bool firstdigit;
 
     private bool unlocked = false;
 
@@ -71,6 +72,8 @@ public class KeyPadProp : MonoBehaviour
             Debug.Log("Mot de Passe incorrect");
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._erreur);
             anim.SetTrigger("shake");
+            if (firstdigit) SoundControler._soundControler.PlaySound(SoundControler._soundControler._aide);
+            else SoundControler._soundControler.PlaySound(SoundControler._soundControler._aide);
         }
     }
 

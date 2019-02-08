@@ -20,6 +20,8 @@ public class SoundControler : MonoBehaviour {
     public AudioClip _musicMenu;
     public AudioClip _footStep;
     public AudioClip _murtombe;
+    public AudioClip _aide;
+    public AudioClip _aide2;
 
 
     public static SoundControler _soundControler;
