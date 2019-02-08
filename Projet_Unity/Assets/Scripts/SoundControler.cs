@@ -23,7 +23,7 @@ public class SoundControler : MonoBehaviour {
 
     public static SoundControler _soundControler;
 
-    private AudioSource _source;
+    private AudioSource[] _sources;
 
     private void Awake()
     {
@@ -32,25 +32,25 @@ public class SoundControler : MonoBehaviour {
         else
             Destroy(this);
 
-        _source = GetComponent<AudioSource>();
+        _sources = GetComponents<AudioSource>();
         
-        _source.clip = _musicIG;
-        _source.loop = true;
-        _source.Play();
+        _sources[0].clip = _musicIG;
+        _sources[0].loop = true;
+        _sources[0].Play();
     }
 
     public void PlaySound(AudioClip sound)
     {
-        _source.PlayOneShot(sound);
+        _sources[1].PlayOneShot(sound);
     }
 
     public void FootStep()
     {
-        _source.clip = _footStep;
-        _source.volume = Random.Range(0.8f, 1.0f);
-        _source.pitch = Random.Range(0.8f, 1.1f);
-        _source.loop = false;
-        _source.Play();
+        _sources[1].clip = _footStep;
+        _sources[1].volume = Random.Range(0.8f, 1.0f);
+        _sources[1].pitch = Random.Range(0.8f, 1.1f);
+        _sources[1].loop = false;
+        _sources[1].Play();
 
     }
 
