@@ -676,6 +676,7 @@ MonoBehaviour:
   _lightOff: {fileID: 8300000, guid: e1a767c6094f55448a86ce8ea55ae9e2, type: 3}
   _musicIG: {fileID: 0}
   _musicMenu: {fileID: 0}
+  _footStep: {fileID: 8300000, guid: b8940ca26c1233341894960210a0317f, type: 3}
 --- !u!82 &534669909
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1164,7 +1165,7 @@ GameObject:
   m_Layer: 0
   m_Name: LightTarget
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

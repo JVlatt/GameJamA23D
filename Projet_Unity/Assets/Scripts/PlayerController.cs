@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private CameraController camcontroller;
     public float _range = 5.0f;
     public bool _frozen = false;
+    private float _timer = 0.5f;
 
     private void Start()
     {
@@ -39,6 +40,13 @@ public class PlayerController : MonoBehaviour
         Vector3 move = new Vector3(x * _speed, 0, y * _speed);
         move *= Time.deltaTime;
         transform.Translate(move);
+        _timer -= Time.deltaTime;
+        if ((x >= 0.1f || x <= -0.1f || y >= 0.1f || y <= -0.1f) && _timer <= 0)
+        { 
+            SoundControler._soundControler.FootStep();
+            _timer = 0.5f;
+        }
+
     }
     
     private void OnTriggerStay(Collider other)

@@ -18,6 +18,7 @@ public class SoundControler : MonoBehaviour {
     public AudioClip _lightOff;
     public AudioClip _musicIG;
     public AudioClip _musicMenu;
+    public AudioClip _footStep;
 
 
     public static SoundControler _soundControler;
@@ -41,6 +42,16 @@ public class SoundControler : MonoBehaviour {
     public void PlaySound(AudioClip sound)
     {
         _source.PlayOneShot(sound);
+    }
+
+    public void FootStep()
+    {
+        _source.clip = _footStep;
+        _source.volume = Random.Range(0.8f, 1.0f);
+        _source.pitch = Random.Range(0.8f, 1.1f);
+        _source.loop = false;
+        _source.Play();
+
     }
 
 }
