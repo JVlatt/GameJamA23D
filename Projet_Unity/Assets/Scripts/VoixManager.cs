@@ -38,7 +38,7 @@ public class VoixManager : MonoBehaviour
             case 3:
                 audioSource.PlayOneShot(phrase2);
                 break;
-            case 4:
+            case 6:
                 audioSource.PlayOneShot(phrase3);
                 break;
             case 7:
