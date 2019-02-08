@@ -11,6 +11,7 @@ public class Lamp : MonoBehaviour
 
     private float _timer;
     private float _cooldown = 1.0f;
+    public float speed = 0.5f;
 
     private bool _timerSetup;
     private bool musicplayed;
@@ -44,6 +45,7 @@ public class Lamp : MonoBehaviour
         float y = Input.GetAxis("Vertical");
 
         Vector3 move = new Vector3(x, y, 0);
+        move *= speed;
         _target.transform.Translate(move);
 
     }

@@ -106,6 +106,7 @@ public class KeyPadProp : MonoBehaviour
         string test = num[0].ToString() + num[1].ToString() + num[2].ToString();
         if (test == Password)
         {
+            unlocked = true;
             KeyPadUI.gameObject.SetActive(false);
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._validation);
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._murtombe);
