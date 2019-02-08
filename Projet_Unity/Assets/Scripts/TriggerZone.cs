@@ -26,6 +26,7 @@ public class TriggerZone : MonoBehaviour
                     else
                     {
                         SoundControler._soundControler.PlaySound(SoundControler._soundControler._vision);
+                        VoixManager.voixManager.Playvoice();
                         detected = true;
                         timer = 2;
                     }

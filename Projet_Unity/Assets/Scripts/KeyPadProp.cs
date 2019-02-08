@@ -34,6 +34,7 @@ public class KeyPadProp : MonoBehaviour
     {
         if (unlocked && _door.transform.position.y > -stop)
             _door.transform.Translate(new Vector3(0, -Time.deltaTime, 0));
+        else if(unlocked) VoixManager.voixManager.Playvoice();
         if (Input.GetKeyDown(KeyCode.Escape) && KeyPadUI.activeInHierarchy )
         {
             Reset();
@@ -55,6 +56,7 @@ public class KeyPadProp : MonoBehaviour
             KeyPadUI.gameObject.SetActive(false);
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._validation);
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._murtombe);
+            VoixManager.voixManager.Playvoice();
             GameController._gameController.Freeze(false);
 
         }
@@ -93,6 +95,7 @@ public class KeyPadProp : MonoBehaviour
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._validation);
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._murtombe);
             GameController._gameController.Freeze(false);
+            VoixManager.voixManager.Playvoice();
         }
         else
         {
