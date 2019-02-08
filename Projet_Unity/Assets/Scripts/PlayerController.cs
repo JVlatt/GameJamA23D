@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
             ChangeCursor(_cursorHand, 0.5f);
             if (Input.GetMouseButton(0))
             {
-                hit.transform.position = new Vector3(hit.transform.position.x,hit.transform.position.y,hit.transform.position.z + Input.GetAxis("Mouse X"));
+                hit.transform.position = new Vector3(hit.transform.position.x,hit.transform.position.y,hit.transform.position.z - Input.GetAxis("Mouse X"));
             }
         }
         else
