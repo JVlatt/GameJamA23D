@@ -47,7 +47,7 @@ public class Lamp : MonoBehaviour
         _player = player;
         _controlled = true;
     }
-    private void Exit()
+    public void Exit()
     {
         _timerSetup = false;
         _controlled = false;
