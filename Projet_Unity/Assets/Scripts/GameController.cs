@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     private Transform _camera;
     private PlayerController _playerController;
     private CameraController _cameraController;
-
+    public GameObject MenuUI;
 
     private void Awake()
     {
@@ -23,6 +23,16 @@ public class GameController : MonoBehaviour
     public void Freeze(bool state)
     { 
         _playerController._frozen = state;
-        _cameraController.Block(state);    
+        _cameraController.Block(state);
+        _playerController._cursor.gameObject.SetActive(!state);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && !MenuUI.activeInHierarchy)
+        {
+            Freeze(true);
+            MenuUI.SetActive(true);
+        }
     }
 }

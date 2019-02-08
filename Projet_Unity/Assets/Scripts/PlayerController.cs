@@ -24,9 +24,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if(!_frozen)
+        {
             Move();
+            CheckObjects();
+        }
 
-        CheckObjects();
     }
 
     void Move()
@@ -54,7 +56,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, _range) && hit.transform.tag == "InteractiveObject")
         {
-            ChangeCursor(_cursorHand, 1);
+            ChangeCursor(_cursorHand, 0.5f);
             if (Input.GetMouseButton(0))
             {
                 hit.transform.position = new Vector3(hit.transform.position.x + Input.GetAxis("Mouse X"),hit.transform.position.y,hit.transform.position.z);
@@ -62,7 +64,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            ChangeCursor(_cursorOver,0.5f);
+            ChangeCursor(_cursorOver,0.2f);
         }
     }
 
