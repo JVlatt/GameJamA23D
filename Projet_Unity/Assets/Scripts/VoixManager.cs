@@ -18,6 +18,8 @@ public class VoixManager : MonoBehaviour
     public AudioClip phrase9;
     public AudioClip phraseintro;
     public AudioClip phraseoutro;
+    public AudioClip lab1;
+    public AudioClip lab2;
 
     private void Awake()
     {
@@ -39,9 +41,28 @@ public class VoixManager : MonoBehaviour
             case 4:
                 audioSource.PlayOneShot(phrase3);
                 break;
-            case 5:
+            case 7:
                 audioSource.PlayOneShot(phrase4);
                 break;
+            case 8:
+                audioSource.PlayOneShot(phrase5);
+                break;
+            case 9:
+                audioSource.PlayOneShot(phrase7);
+                break;
+            case 10:
+                audioSource.PlayOneShot(phrase8);
+                break;
+            case 13:
+                audioSource.PlayOneShot(phrase9);
+                break;
+            case 14:
+                audioSource.PlayOneShot(lab1);
+                break;
+            case 15:
+                audioSource.PlayOneShot(lab2);
+                break;
         }
+        state++;
     }
 }

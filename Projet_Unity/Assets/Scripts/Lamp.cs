@@ -13,6 +13,7 @@ public class Lamp : MonoBehaviour
     private float _cooldown = 1.0f;
 
     private bool _timerSetup;
+    private bool musicplayed;
 
     void Update()
     {
@@ -20,6 +21,10 @@ public class Lamp : MonoBehaviour
             _timer -= Time.deltaTime;
         if (_controlled)
         {
+            if (!musicplayed) {
+                SoundControler._soundControler.PlaySound(SoundControler._soundControler._lightOn);
+                musicplayed = true;
+            }
             if(!_timerSetup)
             { 
                 _timer = _cooldown;

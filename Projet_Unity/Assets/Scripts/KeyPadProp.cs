@@ -54,6 +54,7 @@ public class KeyPadProp : MonoBehaviour
             unlocked = true;
             KeyPadUI.gameObject.SetActive(false);
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._validation);
+            SoundControler._soundControler.PlaySound(SoundControler._soundControler._murtombe);
             GameController._gameController.Freeze(false);
 
         }
@@ -90,6 +91,7 @@ public class KeyPadProp : MonoBehaviour
         {
             KeyPadUI.gameObject.SetActive(false);
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._validation);
+            SoundControler._soundControler.PlaySound(SoundControler._soundControler._murtombe);
             GameController._gameController.Freeze(false);
         }
         else
