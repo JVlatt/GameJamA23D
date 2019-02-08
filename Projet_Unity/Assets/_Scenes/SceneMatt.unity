@@ -462,6 +462,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KeyPadUI: {fileID: 284862195}
   _door: {fileID: 2111314190}
+  stop: 0
+  TextField: {fileID: 0}
+  Password: 0000
 --- !u!1001 &498903621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -645,6 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6fcaf5c6413cc418eca6b5fd244e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MenuUI: {fileID: 0}
 --- !u!114 &534669908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,6 +675,7 @@ MonoBehaviour:
   _lightOff: {fileID: 8300000, guid: e1a767c6094f55448a86ce8ea55ae9e2, type: 3}
   _musicIG: {fileID: 0}
   _musicMenu: {fileID: 0}
+  _footStep: {fileID: 8300000, guid: b8940ca26c1233341894960210a0317f, type: 3}
 --- !u!82 &534669909
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1156,7 +1161,7 @@ GameObject:
   m_Layer: 0
   m_Name: LightTarget
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1314,6 +1319,9 @@ MonoBehaviour:
   _layer:
     serializedVersion: 2
     m_Bits: 512
+  cooldown: 0
+  "maxOppacit\xE9": 0
+  feedback: {fileID: 0}
 --- !u!4 &1574536588
 Transform:
   m_ObjectHideFlags: 0
@@ -1576,6 +1584,9 @@ MonoBehaviour:
   _layer:
     serializedVersion: 2
     m_Bits: 512
+  cooldown: 0
+  "maxOppacit\xE9": 0
+  feedback: {fileID: 0}
 --- !u!65 &1893375244
 BoxCollider:
   m_ObjectHideFlags: 0
