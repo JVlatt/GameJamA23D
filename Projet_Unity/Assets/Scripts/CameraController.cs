@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
 
     public RotationAxis axes = RotationAxis.MouseX;
 
-    public const float Y_MIN = -60.0f;
+    public const float Y_MIN = -80.0f;
     public const float Y_MAX = 60.0f;
 
     public float Sensitivity_x = 10.0f;
