@@ -50,6 +50,7 @@ public class KeyPadProp : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)  && timer <=0 && inside)
         {
             Reset();
+            num =new int[] { 1,1,1};
             GameController._gameController.Freeze(false);
             KeyPadUI.SetActive(false);
             inside = false;
