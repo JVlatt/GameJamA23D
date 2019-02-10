@@ -13,14 +13,20 @@ public class PlayerController : MonoBehaviour
     public float _speed = 10.0f;
     private CameraController camcontroller;
     public float _range = 5.0f;
-    public bool _frozen = false;
+    public bool _frozen = true;
     private float _timer = 0.5f;
     public bool gamejam;
+    private float _tActive = 0.0f;
+    private float _tWait = 7.0f;
 
     private void Start()
     {
         camcontroller = transform.GetComponent<CameraController>();
-        
+        if (!gamejam)
+        {
+            VoixManager.voixManager.Playvoice();
+            gamejam = true;
+        }
     }
 
     void Update()
@@ -29,6 +35,13 @@ public class PlayerController : MonoBehaviour
         {
             Move();
             CheckObjects();
+        }
+
+        _tActive += Time.deltaTime;
+        if (_tActive > _tWait)
+        {
+            _frozen = false;
+            return;
         }
 
     }
@@ -44,11 +57,6 @@ public class PlayerController : MonoBehaviour
         _timer -= Time.deltaTime;
         if ((x >= 0.1f || x <= -0.1f || y >= 0.1f || y <= -0.1f) && _timer <= 0)
         {
-            if (!gamejam)
-            {
-                VoixManager.voixManager.Playvoice();
-                gamejam = true;
-            }
             SoundControler._soundControler.FootStep();
             _timer = 0.5f;
         }
