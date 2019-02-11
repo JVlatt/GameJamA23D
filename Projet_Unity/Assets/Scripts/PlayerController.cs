@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public float _speed = 10.0f;
     private CameraController camcontroller;
     public float _range = 5.0f;
-    public bool _frozen = true;
+    public bool _frozen;
     private float _timer = 0.5f;
     public bool gamejam;
     private float _tActive = 0.0f;
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         }
 
         _tActive += Time.deltaTime;
-        if (_tActive > _tWait)
+        if (_tActive > _tWait && _tActive < 8.0f)
         {
             _frozen = false;
             return;
