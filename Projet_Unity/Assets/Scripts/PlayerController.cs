@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour
     public bool _frozen;
     private float _timer = 0.5f;
     public bool gamejam;
-    private float _tActive = 0.0f;
-    private float _tWait = 7.0f;
+    public float _tActive = 0.0f;
+    public float _tWait = 7.0f;
 
     private void Start()
     {

@@ -45,9 +45,17 @@ public class Lamp : MonoBehaviour
         float y = Input.GetAxis("Vertical");
 
         Vector3 move = new Vector3(x, y, 0);
-        move *= speed;
-        _target.transform.Translate(move);
 
+        if (_target.transform.localPosition.x > 20 && move.x > 0)
+            move.x = 0;
+        if (_target.transform.localPosition.x < -21 && move.x < 0)
+            move.x = 0;
+        if (_target.transform.localPosition.y > 36 && move.y > 0)
+            move.y = 0;
+        if (_target.transform.localPosition.y < 10 && move.y < 0)
+            move.y = 0;
+            move *= speed;
+        _target.transform.Translate(move);
     }
     public void Control(GameObject player)
     {
