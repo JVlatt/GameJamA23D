@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public float _speed = 10.0f;
     private CameraController camcontroller;
-    public float _range = 5.0f;
+    public float _range = 7.0f;
     public bool _frozen;
     private float _timer = 0.5f;
     public bool gamejam;
@@ -81,7 +81,12 @@ public class PlayerController : MonoBehaviour
             ChangeCursor(_cursorHand, 0.5f);
             if (Input.GetMouseButton(0))
             {
-                hit.transform.position = new Vector3(hit.transform.position.x,hit.transform.position.y,hit.transform.position.z - Input.GetAxis("Mouse X"));
+                float move = Input.GetAxis("Mouse X");
+
+                if(move > 0 && hit.transform.localPosition.z > -0.8)
+                    hit.transform.position = new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - (move/3));
+                if(move < 0 && hit.transform.localPosition.z < 2.0)
+                    hit.transform.position = new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - (move / 3));
             }
         }
         else
@@ -94,6 +99,5 @@ public class PlayerController : MonoBehaviour
     {
         _cursor.sprite = cursor;
         _cursor.transform.localScale = new Vector3(scale, scale, 1);
-        Debug.Log(_cursor.sprite.name);
     }
 }

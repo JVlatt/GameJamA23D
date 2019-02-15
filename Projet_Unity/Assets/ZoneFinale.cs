@@ -7,7 +7,7 @@ public class ZoneFinale : MonoBehaviour
     public GameObject Walls;
     private bool unlocked = false;
     public float stop = 6;
-    public AudioClip omgfin;
+    public AudioClip sound;
 
     private void Update()
     {
@@ -16,10 +16,10 @@ public class ZoneFinale : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-            unlocked = true;
+    {     
+        if (unlocked == false)
+            SoundControler._soundControler.PlaySound(sound);
+        unlocked = true;
 
-        SoundControler._soundControler.PlaySound(omgfin);
     }
 }
