@@ -41,10 +41,10 @@ public class KeyPadProp : MonoBehaviour
         if (timer > 0)
             timer -= Time.deltaTime;
         if (unlocked && _door.transform.position.y > -stop)
-            _door.transform.Translate(new Vector3(0, -Time.deltaTime, 0));
+            _door.transform.Translate(new Vector3(0, -Time.deltaTime/3, 0));
         else if (unlocked && !soundplayed)
         {
-            VoixManager.voixManager.Playvoice();
+            //VoixManager.voixManager.Playvoice();
             soundplayed = true;
         }
         if (Input.GetKeyDown(KeyCode.E)  && timer <=0 && inside)
@@ -70,7 +70,7 @@ public class KeyPadProp : MonoBehaviour
             KeyPadUI.gameObject.SetActive(false);
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._validation);
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._murtombe);
-            VoixManager.voixManager.Playvoice();
+            //VoixManager.voixManager.Playvoice();
             GameController._gameController.Freeze(false);
             inside = false;
 

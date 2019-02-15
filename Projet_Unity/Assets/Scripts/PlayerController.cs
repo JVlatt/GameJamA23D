@@ -10,9 +10,9 @@ public class PlayerController : MonoBehaviour
     public Sprite _cursorHand;
     public Sprite _cursorOver;
 
-    public float _speed = 10.0f;
+    public float _speed;
     private CameraController camcontroller;
-    public float _range = 7.0f;
+    public float _range;
     public bool _frozen;
     private float _timer = 0.5f;
     public bool gamejam;
