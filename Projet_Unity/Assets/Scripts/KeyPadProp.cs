@@ -44,7 +44,7 @@ public class KeyPadProp : MonoBehaviour
             _door.transform.Translate(new Vector3(0, -Time.deltaTime, 0));
         else if (unlocked && !soundplayed)
         {
-            //VoixManager.voixManager.Playvoice();
+            VoixManager.voixManager.Playvoice();
             soundplayed = true;
         }
         if (Input.GetKeyDown(KeyCode.E)  && timer <=0 && inside)
@@ -70,7 +70,7 @@ public class KeyPadProp : MonoBehaviour
             KeyPadUI.gameObject.SetActive(false);
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._validation);
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._murtombe);
-            //VoixManager.voixManager.Playvoice();
+            VoixManager.voixManager.Playvoice();
             GameController._gameController.Freeze(false);
             inside = false;
 
@@ -114,7 +114,7 @@ public class KeyPadProp : MonoBehaviour
             SoundControler._soundControler.PlaySound(SoundControler._soundControler._murtombe);
             GameController._gameController.Freeze(false);
             inside = false;
-            VoixManager.voixManager.Playvoice();
+            //VoixManager.voixManager.Playvoice();
         }
         else
         {
