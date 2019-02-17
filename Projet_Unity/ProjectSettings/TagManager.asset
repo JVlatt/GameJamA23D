@@ -8,6 +8,8 @@ TagManager:
   - Lamp
   - DigiCode
   - LampTrigger
+  - '''E'' trigger'
+  - Door
   layers:
   - Default
   - TransparentFX

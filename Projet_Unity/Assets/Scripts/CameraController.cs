@@ -16,8 +16,8 @@ public class CameraController : MonoBehaviour
     public const float Y_MIN = -80.0f;
     public const float Y_MAX = 75.0f;
 
-    public float Sensitivity_x = 10.0f;
-    public float Sensitivity_y = 10.0f;
+    public float Sensitivity_x;
+    public float Sensitivity_y;
 
     public float _rotationX = 0;
 
@@ -42,7 +42,7 @@ public class CameraController : MonoBehaviour
         {
             if (axes == RotationAxis.MouseY)
             {
-                transform.localEulerAngles = new Vector3(0, 0, 0);
+                transform.localEulerAngles = new Vector3(15, 0, 0);
             }
         }
     }

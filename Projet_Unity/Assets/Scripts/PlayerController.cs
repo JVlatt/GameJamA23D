@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public Image _cursor;
 
-    public Sprite _cursorHand;
+    public Sprite _CursorHand;
+    public Sprite _cursorE;
     public Sprite _cursorOver;
 
     public float _speed;
@@ -76,17 +77,22 @@ public class PlayerController : MonoBehaviour
     private void CheckObjects()
     {
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, _range) && hit.transform.tag == "InteractiveObject")
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, _range) && (hit.transform.tag == "InteractiveObject" || hit.transform.tag == "Door"))
         {
-            ChangeCursor(_cursorHand, 0.5f);
-            if (Input.GetMouseButton(0))
+            if (hit.transform.tag == "Door")
+                ChangeCursor(_CursorHand, 1.0f);
+            
+            else
+                ChangeCursor(_cursorE, 1.0f);
+
+            if (Input.GetMouseButton(0) && hit.transform.tag == "Door")
             {
                 float move = Input.GetAxis("Mouse X");
 
-                if(move > 0 && hit.transform.localPosition.z > -0.8)
-                    hit.transform.position = new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - (move/3));
+                if(move > 0 && hit.transform.localPosition.z > -0.78)
+                    hit.transform.position = new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - (move/7));
                 if(move < 0 && hit.transform.localPosition.z < 2.0)
-                    hit.transform.position = new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - (move / 3));
+                    hit.transform.position = new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z - (move/7));
             }
         }
         else

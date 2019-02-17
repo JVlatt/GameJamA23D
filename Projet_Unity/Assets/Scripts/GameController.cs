@@ -34,5 +34,10 @@ public class GameController : MonoBehaviour
             Freeze(true);
             MenuUI.SetActive(true);
         }
+        else if (Input.GetKeyDown(KeyCode.Escape) && MenuUI.activeInHierarchy)
+        {
+            Freeze(false);
+            MenuUI.SetActive(false);
+        }
     }
 }

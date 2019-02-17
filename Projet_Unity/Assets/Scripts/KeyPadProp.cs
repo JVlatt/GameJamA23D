@@ -41,7 +41,7 @@ public class KeyPadProp : MonoBehaviour
         if (timer > 0)
             timer -= Time.deltaTime;
         if (unlocked && _door.transform.position.y > -stop)
-            _door.transform.Translate(new Vector3(0, -Time.deltaTime/3, 0));
+            _door.transform.Translate(new Vector3(0, -Time.deltaTime, 0));
         else if (unlocked && !soundplayed)
         {
             //VoixManager.voixManager.Playvoice();
