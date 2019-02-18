@@ -71,6 +71,8 @@ public class PlayerController : MonoBehaviour
             camcontroller.Block(true);
             _frozen = true;
             other.gameObject.GetComponent<Lamp>().Control(gameObject);
+            ChangeCursor(_cursorOver, 0.2f);
+
         }
     }
     
@@ -80,10 +82,10 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, _range) && (hit.transform.tag == "InteractiveObject" || hit.transform.tag == "Door"))
         {
             if (hit.transform.tag == "Door")
-                ChangeCursor(_CursorHand, 1.0f);
+                ChangeCursor(_CursorHand, 0.8f);
             
             else
-                ChangeCursor(_cursorE, 1.0f);
+                ChangeCursor(_cursorE, 0.8f);
 
             if (Input.GetMouseButton(0) && hit.transform.tag == "Door")
             {
