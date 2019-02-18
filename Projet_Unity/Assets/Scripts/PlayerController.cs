@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         camcontroller = transform.GetComponent<CameraController>();
+        ChangeCursor(_cursorOver, 0.2f);
         if (!gamejam)
         {
             VoixManager.voixManager.Playvoice();
